@@ -11,11 +11,11 @@ Green events were automatically created :boom:
 
 # Installation 
 
-follow up the guid from project's [README](../README.md)
+follow up the guide from project's [README](../README.md)
 
 # Configuration 
 
-Check [AutoBloker's](autoblocker.js) global vars. 
+Check [AutoBloker's](AutoBlocker.js) global vars. 
 
 # Usage
 
