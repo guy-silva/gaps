@@ -27,9 +27,11 @@ var autoBlockMinSizeMinutes = 10;
 var minumunEventLenghtToBlock = 15;
 // set the text to be used in the autoblock event. ATTENTION: always use a string with uncomon 
 // text for a meeting, otherwise it may delete wrong content from your calendar!
-var eventModifier = '[AutoBlock]';
-// set the color to be used in the autoblock event
-var eventColor = CalendarApp.EventColor.ORANGE;
+var eventModifier = '▄▀▄▀▄';
+// set the color to be used in the autoblock event. You can:
+//    Use 'null' to copy the color from the event being used
+//    Use color from CalendarApp.EventColor like CalendarApp.EventColor.GRAY
+var eventColor = null;
 
 function executeAutoBlocker() {
   var workCal = CalendarApp.getDefaultCalendar();
@@ -76,7 +78,7 @@ function createAutoblockEvent_(calendar, afterEvent, length){
   endTime.setMinutes(endTime.getMinutes() + length);
 
   var event = calendar.createEvent(eventModifier+ ' ' + afterEvent.getTitle(), startTime, endTime);
-  event.setColor(eventColor);
+  event.setColor(eventColor === null ? afterEvent.getColor() : eventColor);
   event.removeAllReminders();
 };
 
