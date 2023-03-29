@@ -78,7 +78,7 @@ function createAutoblockEvent_(calendar, afterEvent, length){
   endTime.setMinutes(endTime.getMinutes() + length);
 
   var event = calendar.createEvent(eventModifier+ ' ' + afterEvent.getTitle(), startTime, endTime);
-  event.setColor(eventColor);
+  event.setColor(eventColor === null ? afterEvent.getColor() : eventColor);
   event.removeAllReminders();
 };
 
